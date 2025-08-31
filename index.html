@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Zone - Multi-Tool Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1E2F;
+            color: #EAEAEA;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #2B2D42;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #EAEAEA;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        .contact-email {
+            color: #EAEAEA;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-email:hover {
+            color: #FFD700;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #EAEAEA;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #2B2D42, #1E1E2F);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #EAEAEA;
+        }
+
+        /* Tools Grid */
+        .tools-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #FFD700;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .tool-card {
+            background-color: #3A3D5B;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background-color: #FFD700;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .tool-card:hover h2,
+        .tool-card:hover p {
+            color: #1E1E2F;
+        }
+
+        .tool-card h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #FFD700;
+            transition: color 0.3s;
+        }
+
+        .tool-card p {
+            margin-bottom: 20px;
+            color: #EAEAEA;
+            transition: color 0.3s;
+        }
+
+        .tool-btn {
+            background-color: #FFD700;
+            color: #1E1E2F;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tool-btn:hover {
+            background-color: #E6C200;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2B2D42;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            color: #EAEAEA;
+            max-width: 250px;
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact a {
+            color: #EAEAEA;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-contact a:hover {
+            color: #FFD700;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #EAEAEA;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3A3D5B;
+            color: #EAEAEA;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin: 20px 0;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .tool-card {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Tools Zone</a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Tools</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="mailto:toolzone83@gmail.com" class="contact-email">toolzone83@gmail.com</a>
+                <button class="mobile-menu-btn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your All-in-One Tool Solution</h1>
+            <p>Access a wide range of free online tools to simplify your digital tasks. Fast, efficient, and user-friendly.</p>
+        </div>
+    </section>
+
+    <!-- Tools Grid Section -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Our Tools</h2>
+            <div class="tools-grid">
+                <!-- Tool Card 1 -->
+                <div class="tool-card">
+                    <h2>Image Converter</h2>
+                    <p>Convert your images between different formats with just a few clicks.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Image Converter')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 2 -->
+                <div class="tool-card">
+                    <h2>Image Compressor</h2>
+                    <p>Reduce image file size without compromising quality.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Image Compressor')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 3 -->
+                <div class="tool-card">
+                    <h2>Image Upscaler</h2>
+                    <p>Enhance your image resolution with our AI-powered upscaling tool.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Image Upscaler')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 4 -->
+                <div class="tool-card">
+                    <h2>Image Crop</h2>
+                    <p>Easily crop and resize your images to the perfect dimensions.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Image Crop')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 5 -->
+                <div class="tool-card">
+                    <h2>Video Converter</h2>
+                    <p>Convert videos to different formats for any device or platform.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Video Converter')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 6 -->
+                <div class="tool-card">
+                    <h2>Age Calculator</h2>
+                    <p>Calculate exact age, time between dates, and more.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Age Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 7 -->
+                <div class="tool-card">
+                    <h2>EMI Calculator</h2>
+                    <p>Calculate your Equated Monthly Installments for loans.</p>
+                    <button class="tool-btn" onclick="redirectToTool('EMI Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 8 -->
+                <div class="tool-card">
+                    <h2>SIP Calculator</h2>
+                    <p>Plan your investments with our Systematic Investment Plan calculator.</p>
+                    <button class="tool-btn" onclick="redirectToTool('SIP Calculator')">Use Tool</button>
+                </div>
+
+                <!-- Tool Card 9 -->
+                <div class="tool-card">
+                    <h2>Audio Trim</h2>
+                    <p>Trim and edit audio files online with precision.</p>
+                    <button class="tool-btn" onclick="redirectToTool('Audio Trim')">Use Tool</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Tools Zone</h3>
+                    <p>Simplifying your digital life with easy-to-use online tools.</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:toolzone83@gmail.com">toolzone83@gmail.com</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Tools Zone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle tool redirection
+        function redirectToTool(toolName) {
+            alert(`Redirecting to ${toolName}`);
+            // In a real implementation, this would navigate to the tool page
+            // window.location.href = `/tools/${toolName.toLowerCase().replace(' ', '-')}`;
+        }
+
+        // Mobile menu functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Responsive nav adjustment
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('nav ul').style.display = 'flex';
+            } else {
+                document.querySelector('nav ul').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
